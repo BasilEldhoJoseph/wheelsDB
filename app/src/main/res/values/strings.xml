@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">wheelsDB</string>
+    <string name="roll_no">roll no</string>
+    <string name="name">name</string>
+    <string name="add_model">add model</string>
+    <string name="insert">INSERT!</string>
+    <string name="price">Price</string>
+
+    <array name="courses">
+        <item>BMW</item>
+        <item>FERRARI</item>
+        <item>MCLAREN</item>
+        <item>AUDI</item>
+        <item>MERCEDES</item>
+        <item>BUGATTI</item>
+        <item>ASTON MARTIN</item>
+        <item>F1</item>
+
+    </array>
+    <string name="Brand">Brand</string>
+    <string name="hint_brand">Select a Brand</string>
+    <string name="engine_specification">Engine Specification</string>
+
+</resources>

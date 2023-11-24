@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "203746705614",
+    "project_id": "wheelsdb-81b7a",
+    "storage_bucket": "wheelsdb-81b7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203746705614:android:2735e57ec940618cf1d09f",
+        "android_client_info": {
+          "package_name": "com.example.wheelsdb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvaLxyqoglv0J4m2f9G8J6EniUsCHrlBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
