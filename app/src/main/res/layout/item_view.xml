@@ -10,6 +10,7 @@
     android:backgroundTint="@color/white"
     >
 
+
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
@@ -69,13 +70,23 @@
         android:layout_below="@id/engine"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="110dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
+        android:layout_centerVertical="true"
         android:text="BOOK">
 
     </Button>
 
+    <Button
+        android:id="@+id/viewCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/book"
+        android:layout_marginTop="-67dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="Display" />
 
 
 </RelativeLayout>

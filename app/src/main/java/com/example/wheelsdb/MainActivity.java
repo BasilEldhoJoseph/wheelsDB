@@ -12,6 +12,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
         etCarName = findViewById(R.id.etCarName);
         etPrice = findViewById(R.id.etPrice);
         etEngineSpec = findViewById(R.id.etEngineSpec);
-        spinnerCourses = findViewById(R.id.spinnerCourse);
+        spinnerCourses = findViewById(R.id.spinnerCourse);//brand
+
         btnInsertData = findViewById(R.id.btnInsertData);
         //images
         btnAddImage = findViewById(R.id.btnAddImage);
@@ -132,12 +134,19 @@ public class MainActivity extends AppCompatActivity {
         String price = etPrice.getText().toString();
         String engine = etEngineSpec.getText().toString();
         String brand = spinnerCourses.getSelectedItem().toString();
+        String id = carsDbRef.push().getKey();
        // String u = "";//imageUri.toString();
+       // Log.e("Debug", "Name: " + name + ", Brand: " + brand + ", Price: " + price + ", Engine: " + engine);
+        Cars cars = new Cars(name,brand,price,engine,id);
+        //Log.e("Debug", "Cars object created: " + cars.toString());
 
-        Cars cars = new Cars(name, price, brand, engine);
 
-        carsDbRef.push().setValue(cars);//unique key for each recorded
-        StorageReference reference=storageReference.child("image/"+ UUID.randomUUID().toString());
+        //carsDbRef.push().setValue(cars);//unique key for each recorded
+
+        carsDbRef.child(id).setValue(cars);
+
+
+       StorageReference reference=storageReference.child("image/"+ id);
         reference.putFile(image).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

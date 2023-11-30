@@ -1,6 +1,6 @@
 package com.example.wheelsdb;
 
-public class Cars
+/*public class Cars
 {
     String name,brand,price,engine;
 
@@ -47,12 +47,12 @@ public class Cars
     public void setEngine(String engine) {
         this.engine = engine;
     }
-}
+}*/
 
 
-
-/*public class Cars {
-    String name, price, brand,engine,image;
+/*
+public class Cars {
+    String name,brand,price,engine;
 
 
     public void setName(String name) {
@@ -71,16 +71,14 @@ public class Cars
         this.engine = engine;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
 
-    public Cars(String name, String price, String brand, String engine, String image) {
+
+    public Cars(String name, String price, String brand, String engine) {
         this.name = name;
         this.price = price;
         this.brand = brand;
         this.engine=engine;
-        this.image=image;
+        //this.image=image;
     }
 
 
@@ -101,5 +99,55 @@ public class Cars
     }
 
     public String getImage() {return image;}
-}*/
+}
+
+ */
+
+public class Cars
+{
+    String name;
+    String brand;
+    String price;
+
+    String engine;
+    String key;
+
+    public Cars()
+    {
+    }
+
+    public Cars(String name, String brand, String price, String engine,String key) {
+
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+
+        this.engine=engine;
+        this.key = key;
+        //this.image=image;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getEngine() {
+        return engine;
+    }
+
+
+
+}
 
