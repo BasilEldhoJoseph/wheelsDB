@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SORT">
+    <EditText
+        android:id="@+id/editTextBrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:hint="Car Brand"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextBrand"
+        android:layout_marginTop="16dp"
+        android:hint="Car Name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextName"
+        android:layout_marginTop="14dp"
+        android:hint="Price"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextEngine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPrice"
+        android:layout_marginTop="16dp"
+        android:hint="Engine Name"
+        android:inputType="text" />
+
+    <!-- Place the button below the EditText fields -->
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextEngine"
+        android:layout_marginTop="24dp"
+        android:text="Search"
+        android:background="@color/white"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

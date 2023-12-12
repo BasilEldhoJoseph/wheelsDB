@@ -4,7 +4,12 @@ import com.example.wheelsdb.Myadapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -14,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,6 +39,23 @@ public class recycler_view extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
+
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("PREFERANCE", Context.MODE_PRIVATE);
+        String sortbrand = sp.getString("sortbrand", "");
+        String sortname = sp.getString("sortname","");
+        String sortprice = sp.getString("sortprice","");
+        String sortengine = sp.getString("sortengine","");
+
+
+        MaterialButton sort =(MaterialButton) findViewById(R.id.sort);
+
+        sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent next = new Intent(recycler_view.this, SORT.class);
+                startActivity(next);
+            }
+        });
 
         getCarinfo =FirebaseDatabase.getInstance().getReference("cars");///!!!!!!!!!!!!!
 
@@ -61,7 +84,19 @@ public class recycler_view extends AppCompatActivity {
                      //if(eng.equals("w16")){
                         // list.add(helper1);
                     // }
-                    list.add(helper1);
+                    //list.add(helper1);
+                    if(helper1.getName().equals(sortname) || sortname.equals("")){
+                        if(helper1.getBrand().equals(sortbrand) || sortbrand.equals("")) {
+                            if(helper1.getEngine().equals(sortengine) || sortengine.equals("")){
+                                if(sortprice.equals("")) {
+                                     list.add(helper1);
+                                }
+                                else if (Integer.valueOf(helper1.getPrice())<=Integer.valueOf(sortprice)) {
+                                     list.add(helper1);
+                                }
+                            }
+                        }
+                    }
                 }
                 //myadapter.notifyDataSetChanged();//live  change of data when app is closed,without it app need to reopened  .
             }
