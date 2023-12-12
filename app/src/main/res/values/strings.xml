@@ -20,5 +20,6 @@
     <string name="Brand">Brand</string>
     <string name="hint_brand">Select a Brand</string>
     <string name="engine_specification">Engine Specification</string>
+    <string name="enter_new_price">Enter New Price</string>
 
 </resources>
