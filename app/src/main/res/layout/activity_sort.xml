@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextName"
         android:layout_marginTop="14dp"
-        android:hint="Price"
+        android:hint="Max Price"
         android:inputType="numberDecimal" />
 
     <EditText

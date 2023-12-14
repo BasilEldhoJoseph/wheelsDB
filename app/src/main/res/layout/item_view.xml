@@ -7,27 +7,53 @@
     android:backgroundTint="@color/white"
     >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/CarName"
+        android:text="Car Name   :"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        ></TextView>
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@id/CarName"
+        android:layout_centerHorizontal="true"
         android:text="name"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/CarPrice"
+        android:text="Car Price    :"
+        android:layout_below="@+id/CarName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        ></TextView>
 
     <TextView
         android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/CarPrice"
         android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="0dp"
         android:text="@string/price"
         android:textColor="@color/black"
@@ -35,12 +61,27 @@
         android:textStyle="bold" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/CarBrand"
+        android:text="Car Brand   :"
+        android:layout_below="@+id/CarPrice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        ></TextView>
+
+    <TextView
         android:id="@+id/brand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/price"
+        android:layout_toEndOf="@+id/CarBrand"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="0dp"
         android:text="brand"
         android:textColor="@color/black"
@@ -48,12 +89,27 @@
         android:textStyle="bold" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/CarEngine"
+        android:text="Car Engine :"
+        android:layout_below="@+id/CarBrand"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        ></TextView>
+
+    <TextView
         android:id="@+id/engine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/brand"
+        android:layout_toEndOf="@+id/CarEngine"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="0dp"
         android:text="engine"
         android:textColor="@color/black"

@@ -28,6 +28,8 @@ public class SORT extends AppCompatActivity {
                 name = editname.getText().toString();
                 price = editprice.getText().toString();
                 engine = editengine.getText().toString();
+
+                //TODO editing Shared Variables
                 SharedPreferences preferences= getSharedPreferences("PREFERANCE",MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("sortbrand",brand);

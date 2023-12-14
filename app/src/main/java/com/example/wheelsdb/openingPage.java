@@ -21,7 +21,7 @@ public class openingPage extends AppCompatActivity {
         setContentView(R.layout.activity_opening_page);
         Button add = findViewById(R.id.btnAdd);
         Button search=findViewById(R.id.btnsrch);
-
+        //TODO initializing Shared variables
         SharedPreferences preferences= getSharedPreferences("PREFERANCE",MODE_PRIVATE);
         String sortbrand = preferences.getString("sortbrand", "");
         String sortname = preferences.getString("sortname","");
@@ -42,6 +42,7 @@ public class openingPage extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                //TODO editing Shared variables
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("sortbrand","");
                 editor.putString("sortname","");

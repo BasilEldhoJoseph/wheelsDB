@@ -2,6 +2,7 @@ package com.example.wheelsdb;
 import com.example.wheelsdb.Myadapter;
 
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -39,7 +40,7 @@ public class recycler_view extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
-
+        //TODO initializing shared variables for use
         SharedPreferences sp = getApplicationContext().getSharedPreferences("PREFERANCE", Context.MODE_PRIVATE);
         String sortbrand = sp.getString("sortbrand", "");
         String sortname = sp.getString("sortname","");
@@ -85,6 +86,7 @@ public class recycler_view extends AppCompatActivity {
                         // list.add(helper1);
                     // }
                     //list.add(helper1);
+                    //TODO Sorting code
                     if(helper1.getName().equals(sortname) || sortname.equals("")){
                         if(helper1.getBrand().equals(sortbrand) || sortbrand.equals("")) {
                             if(helper1.getEngine().equals(sortengine) || sortengine.equals("")){
@@ -108,10 +110,6 @@ public class recycler_view extends AppCompatActivity {
                 Toast.makeText(recycler_view.this, "ERROR", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
 
 
 
