@@ -45,6 +45,15 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
     String carKey;
     Cars helper1;
 
+
+    private OnItemClickLisener lisener;
+    public interface OnItemClickLisener{
+        void onItemClick();
+    }
+    public void setOnItemClickLisener(OnItemClickLisener clickLisener){
+        lisener=clickLisener;
+    }
+
     public void removeItem(int position) {
         //carKey = items.get(position).getKey();
         items.remove(position);
@@ -62,7 +71,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View V = LayoutInflater.from(context).inflate(R.layout.item_view, parent, false);//making into card
-        return new MyViewHolder(V);//card returned
+        return new MyViewHolder(V,lisener);//card returned
     }
 
 
@@ -88,7 +97,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
         Button book, viewCar,updatePriceButton;
 
         Cars helper1;
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView,OnItemClickLisener lisener) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
             brand = itemView.findViewById(R.id.brand);
@@ -190,9 +199,10 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 String s = dataSnapshot.getKey();
                                 Cars helper2 = dataSnapshot.getValue(Cars.class);
-                                if (helper2.getName().equals(helper1.getName())) {
+                                if (helper2.getKey().equals(helper1.getKey())) {
                                     databaseReference.child(s).setValue(null);
-
+                                    Toast.makeText(context, "Updating database Please Wait!!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Car Has Been Booked Successfully", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -202,7 +212,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                         }
                     });
 
-
+                    lisener.onItemClick();
                 }
             });
 
@@ -321,6 +331,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                         // Show a message to enter a valid price
                         Toast.makeText(context, "Please enter a valid price", Toast.LENGTH_SHORT).show();
                     }
+                    lisener.onItemClick();
                 }
             });
 
@@ -339,6 +350,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            Toast.makeText(context, "Updating database Please Wait!!!", Toast.LENGTH_SHORT).show();
                             Toast.makeText(context, "Price updated successfully", Toast.LENGTH_SHORT).show();
                         }
                     })

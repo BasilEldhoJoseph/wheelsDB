@@ -27,15 +27,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.annotation.NonNull;
 
-
 public class recycler_view extends AppCompatActivity {
-
     DatabaseReference getCarinfo;
     Myadapter myadapter;
-
     Button book;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +61,18 @@ public class recycler_view extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//layout for recycler view
-        recyclerView.setHasFixedSize(true);//??
+        recyclerView.setHasFixedSize(true);//Set fixed size
 
         myadapter = new Myadapter(this,list,recyclerView);
         recyclerView.setAdapter(myadapter);
-
+        myadapter.setOnItemClickLisener(new Myadapter.OnItemClickLisener() {
+            @Override
+            public void onItemClick() {
+                Intent intent=getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
 
         recyclerView.setAdapter(myadapter);//???
         getCarinfo.addValueEventListener(new ValueEventListener() //check value in DB ???
@@ -100,7 +102,7 @@ public class recycler_view extends AppCompatActivity {
                         }
                     }
                 }
-                //myadapter.notifyDataSetChanged();//live  change of data when app is closed,without it app need to reopened  .
+                myadapter.notifyDataSetChanged();//live  change of data when app is closed,without it app need to reopened  .
             }
 
 
