@@ -22,7 +22,8 @@ public class openingPage extends AppCompatActivity {
         Button add = findViewById(R.id.btnAdd);
         Button search=findViewById(R.id.btnsrch);
         //TODO initializing Shared variables
-        SharedPreferences preferences= getSharedPreferences("PREFERANCE",MODE_PRIVATE);
+        SharedPreferences preferences= getSharedPreferences("PREFERANCE",MODE_PRIVATE);//declare variables that is
+                                                                                            // used in other activities
         String sortbrand = preferences.getString("sortbrand", "");
         String sortname = preferences.getString("sortname","");
         String sortprice = preferences.getString("sortprice","");

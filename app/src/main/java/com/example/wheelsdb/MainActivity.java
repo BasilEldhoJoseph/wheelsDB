@@ -95,8 +95,9 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         spinnerCourses.setAdapter(adapter);// Apply the adapter to the spinner
 
-
+        //todo creating an instance for firebase realtime database
         carsDbRef = FirebaseDatabase.getInstance().getReference().child("cars");
+       // carsDbRef.setValue("basil");
         storageReference=FirebaseStorage.getInstance().getReference();
 
 
@@ -130,11 +131,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void insertCarData(Uri image)
     {
+        //todo entering data to firebase realtime base
         String name = etCarName.getText().toString();
         String price = etPrice.getText().toString();
         String engine = etEngineSpec.getText().toString();
         String brand = spinnerCourses.getSelectedItem().toString();
-        String id = carsDbRef.push().getKey();
+        String id = carsDbRef.push().getKey();//unique id for e
        // String u = "";//imageUri.toString();
        // Log.e("Debug", "Name: " + name + ", Brand: " + brand + ", Price: " + price + ", Engine: " + engine);
         Cars cars = new Cars(name,brand,price,engine,id);
@@ -145,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
         carsDbRef.child(id).setValue(cars);
 
-
+        // todo:entering image to storage
        StorageReference reference=storageReference.child("image/"+ id);
         reference.putFile(image).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override

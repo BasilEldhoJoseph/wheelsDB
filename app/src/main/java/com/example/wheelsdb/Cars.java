@@ -124,7 +124,7 @@ public class Cars
 
         this.engine=engine;
         this.key = key;
-        //this.image=image;
+
     }
 
     public String getKey() {

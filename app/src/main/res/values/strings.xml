@@ -12,9 +12,9 @@
         <item>MCLAREN</item>
         <item>AUDI</item>
         <item>MERCEDES</item>
-        <item>BUGATTI</item>
-        <item>ASTON MARTIN</item>
-        <item>F1</item>
+        <item>VOLKSWAGON</item>
+        <item>SUZUKI</item>
+        <item>SKODA</item>
 
     </array>
     <string name="Brand">Brand</string>

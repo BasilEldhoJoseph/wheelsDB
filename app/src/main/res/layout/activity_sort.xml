@@ -4,14 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SORT">
+    tools:context=".SORT"
+    android:background="@drawable/sort_new_new">
+
     <EditText
         android:id="@+id/editTextBrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:hint="Car Brand"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        tools:ignore="TouchTargetSizeCheck"
+        android:textColor="@android:color/white"/>
 
     <EditText
         android:id="@+id/editTextName"
@@ -20,7 +25,10 @@
         android:layout_below="@+id/editTextBrand"
         android:layout_marginTop="16dp"
         android:hint="Car Name"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        tools:ignore="TouchTargetSizeCheck"
+        android:textColor="@android:color/white"/>
 
     <EditText
         android:id="@+id/editTextPrice"
@@ -29,7 +37,10 @@
         android:layout_below="@+id/editTextName"
         android:layout_marginTop="14dp"
         android:hint="Max Price"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:textColorHint="@color/white"
+        tools:ignore="TouchTargetSizeCheck"
+        android:textColor="@android:color/white"/>
 
     <EditText
         android:id="@+id/editTextEngine"
@@ -38,7 +49,10 @@
         android:layout_below="@+id/editTextPrice"
         android:layout_marginTop="16dp"
         android:hint="Engine Name"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        tools:ignore="TouchTargetSizeCheck"
+        android:textColor="@android:color/white"/>
 
     <!-- Place the button below the EditText fields -->
     <Button
@@ -48,7 +62,7 @@
         android:layout_below="@+id/editTextEngine"
         android:layout_marginTop="24dp"
         android:text="Search"
-        android:background="@color/white"
+
         android:textColor="@color/white" />
 
 

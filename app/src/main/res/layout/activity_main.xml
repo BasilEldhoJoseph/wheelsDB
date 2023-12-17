@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
 
-    android:background="@drawable/add_stock_bg"
+    android:background="@drawable/add"
     >
 
 
@@ -96,7 +96,7 @@
            android:layout_height="wrap_content"
            android:text="UPLOAD IMAGE"
            android:layout_gravity="center"
-           android:background="@drawable/round_button"
+           android:background="@drawable/button_shape"
            android:layout_marginBottom="20dp">
 
        </Button>
@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/round_button"
+            android:background="@drawable/button_shape"
             android:text="@string/add_model"
             android:textAllCaps="true"
             tools:ignore="MissingConstraints,VisualLintButtonSize"

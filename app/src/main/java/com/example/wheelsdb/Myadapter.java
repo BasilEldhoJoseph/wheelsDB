@@ -39,18 +39,18 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
     @NonNull
     Context context;
     List<Cars> items;
-    Button search,update;
+
 
     private RecyclerView recyclerView;
     String carKey;
     Cars helper1;
-
-
     private OnItemClickLisener lisener;
-    public interface OnItemClickLisener{
+    public interface OnItemClickLisener
+    {
         void onItemClick();
     }
-    public void setOnItemClickLisener(OnItemClickLisener clickLisener){
+    public void setOnItemClickLisener(OnItemClickLisener clickLisener)
+    {
         lisener=clickLisener;
     }
 
@@ -69,7 +69,8 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
 
 
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
         View V = LayoutInflater.from(context).inflate(R.layout.item_view, parent, false);//making into card
         return new MyViewHolder(V,lisener);//card returned
     }
@@ -199,10 +200,9 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 String s = dataSnapshot.getKey();
                                 Cars helper2 = dataSnapshot.getValue(Cars.class);
-                                if (helper2.getKey().equals(helper1.getKey())) {
+                                if (helper2.getName().equals(helper1.getName())) {
                                     databaseReference.child(s).setValue(null);
-                                    Toast.makeText(context, "Updating database Please Wait!!!", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(context, "Car Has Been Booked Successfully", Toast.LENGTH_SHORT).show();
+
                                 }
                             }
                         }
@@ -211,8 +211,9 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                         public void onCancelled(@NonNull DatabaseError error) {
                         }
                     });
-
                     lisener.onItemClick();
+
+
                 }
             });
 
@@ -333,6 +334,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                     }
                     lisener.onItemClick();
                 }
+
             });
 
             // Show the dialog
@@ -350,7 +352,6 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(context, "Updating database Please Wait!!!", Toast.LENGTH_SHORT).show();
                             Toast.makeText(context, "Price updated successfully", Toast.LENGTH_SHORT).show();
                         }
                     })
