@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextPrice"
         android:layout_marginTop="16dp"
-        android:hint="Engine Name"
+        android:hint="Engine Specification"
         android:inputType="text"
         android:textColorHint="@color/white"
         tools:ignore="TouchTargetSizeCheck"
