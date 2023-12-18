@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
 
     EditText etCarName;
-    EditText etPrice, etEngineSpec;
+    EditText etPrice, etEngineSpec , etCarStock;
     Spinner spinnerCourses;
     Button btnInsertData, btnAddImage;
 
@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         etCarName = findViewById(R.id.etCarName);
         etPrice = findViewById(R.id.etPrice);
         etEngineSpec = findViewById(R.id.etEngineSpec);
+        etCarStock= findViewById(R.id.etStock);
         spinnerCourses = findViewById(R.id.spinnerCourse);//brand
 
         btnInsertData = findViewById(R.id.btnInsertData);
@@ -136,10 +137,11 @@ public class MainActivity extends AppCompatActivity {
         String price = etPrice.getText().toString();
         String engine = etEngineSpec.getText().toString();
         String brand = spinnerCourses.getSelectedItem().toString();
+        String stock = etCarStock.getText().toString();
         String id = carsDbRef.push().getKey();//unique id for e
        // String u = "";//imageUri.toString();
        // Log.e("Debug", "Name: " + name + ", Brand: " + brand + ", Price: " + price + ", Engine: " + engine);
-        Cars cars = new Cars(name,brand,price,engine,id);
+        Cars cars = new Cars(name,brand,price,engine,stock,id);
         //Log.e("Debug", "Cars object created: " + cars.toString());
 
 

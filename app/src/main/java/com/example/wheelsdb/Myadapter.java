@@ -83,6 +83,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
         holder.brand.setText(helper1.getBrand());
         holder.price.setText(helper1.getPrice());
         holder.engine.setText(helper1.getEngine());
+        holder.stock.setText(helper1.getStock());
         holder.helper1=helper1;
     }
 
@@ -94,7 +95,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name, brand, price, engine;
+        TextView name, brand, price, engine, stock;
         Button book, viewCar,updatePriceButton;
 
         Cars helper1;
@@ -104,7 +105,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
             brand = itemView.findViewById(R.id.brand);
             price = itemView.findViewById(R.id.price);
             engine = itemView.findViewById(R.id.engine);
-
+            stock = itemView.findViewById(R.id.stock);
 
             book = itemView.findViewById(R.id.book);
             viewCar = itemView.findViewById(R.id.viewCar);
@@ -191,28 +192,54 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                     }*/
 
 
-                    // TODO: Remove data from Firebase (you need to implement this)
-                    // Get a reference to your Firebase database
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("cars");     //.child(carToDelete);
-                    databaseReference.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                String s = dataSnapshot.getKey();
-                                Cars helper2 = dataSnapshot.getValue(Cars.class);
-                                if (helper2.getName().equals(helper1.getName())) {
-                                    databaseReference.child(s).setValue(null);
+                    int availstock=Integer.valueOf(helper1.getStock());
+                    if(availstock<=1) {
+                        // TODO: Remove data from Firebase (you need to implement this)
+                        // Get a reference to your Firebase database
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("cars");     //.child(carToDelete);
+                        databaseReference.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                    String s = dataSnapshot.getKey();
+                                    Cars helper2 = dataSnapshot.getValue(Cars.class);
+                                    if (helper2.getName().equals(helper1.getName())) {
+                                        databaseReference.child(s).setValue(null);
 
+                                    }
                                 }
                             }
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                        }
-                    });
-                    lisener.onItemClick();
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
+                        lisener.onItemClick();
+                    }
+                    else
+                    {
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("cars");
 
+                        // Assuming you have a unique identifier (carKey) for the car whose price you want to update
+                        String carKey = helper1.getKey();
+
+                        // Update the price in the database
+                        databaseReference.child(carKey).child("stock").setValue(String.valueOf(availstock-1))
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(context, "Updating Database!!!, Please Wait!!!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Car Booked!!!", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(context, "Failed to update price", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                        lisener.onItemClick();
+                    }
 
                 }
             });
@@ -352,6 +379,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            Toast.makeText(context, "Updating Database!!!, Please Wait!!!", Toast.LENGTH_SHORT).show();
                             Toast.makeText(context, "Price updated successfully", Toast.LENGTH_SHORT).show();
                         }
                     })

@@ -102,7 +102,6 @@ public class Cars {
 }
 
  */
-
 public class Cars
 {
     String name;
@@ -110,43 +109,68 @@ public class Cars
     String price;
 
     String engine;
+    String stock;
     String key;
 
-    public Cars()
-    {
-    }
-
-    public Cars(String name, String brand, String price, String engine,String key) {
-
+    public Cars(String name, String brand, String price, String engine, String stock, String key) {
         this.name = name;
         this.brand = brand;
         this.price = price;
-
-        this.engine=engine;
+        this.engine = engine;
+        this.stock = stock;
         this.key = key;
-
     }
 
-    public String getKey() {
-        return key;
+    public Cars() {
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getBrand() {
         return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getPrice() {
         return price;
     }
 
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
     public String getEngine() {
         return engine;
     }
 
+    public void setEngine(String engine) {
+        this.engine = engine;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 
 
 }
