@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
 
-    android:background="@drawable/add"
+    android:background="@drawable/add_final"
     >
 
     <TextView
